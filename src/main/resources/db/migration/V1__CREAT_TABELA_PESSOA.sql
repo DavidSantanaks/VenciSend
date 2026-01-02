@@ -1,0 +1,5 @@
+CREATE TABLE pessoas (
+    id BIGINT  AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50),
+    senha VARCHAR(12)
+);
