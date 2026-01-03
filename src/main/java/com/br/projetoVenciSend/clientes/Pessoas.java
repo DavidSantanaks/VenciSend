@@ -1,4 +1,4 @@
-package com.br.projetoVenciSend.pessoa;
+package com.br.projetoVenciSend.clientes;
 
 
 import jakarta.persistence.Entity;

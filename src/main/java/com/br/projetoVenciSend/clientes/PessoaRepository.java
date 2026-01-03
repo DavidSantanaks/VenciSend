@@ -1,4 +1,4 @@
-package com.br.projetoVenciSend.pessoa;
+package com.br.projetoVenciSend.clientes;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

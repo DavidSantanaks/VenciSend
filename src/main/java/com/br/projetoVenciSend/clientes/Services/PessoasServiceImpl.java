@@ -1,15 +1,15 @@
-package com.br.projetoVenciSend.pessoa.Services;
+package com.br.projetoVenciSend.clientes.Services;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.br.projetoVenciSend.pessoa.PessoaRepository;
-import com.br.projetoVenciSend.pessoa.Pessoas;
-import com.br.projetoVenciSend.pessoa.Record.PessoaCriarResponseDTO;
-import com.br.projetoVenciSend.pessoa.Record.PessoasCriarDTO;
-import com.br.projetoVenciSend.pessoa.Record.PessoasListagemDTO;
+import com.br.projetoVenciSend.clientes.PessoaRepository;
+import com.br.projetoVenciSend.clientes.Pessoas;
+import com.br.projetoVenciSend.clientes.Record.PessoaCriarResponseDTO;
+import com.br.projetoVenciSend.clientes.Record.PessoasCriarDTO;
+import com.br.projetoVenciSend.clientes.Record.PessoasListagemDTO;
 
 @Service
 public class PessoasServiceImpl implements PessoasService {

@@ -1,4 +1,4 @@
-package com.br.projetoVenciSend.pessoa.Record;
+package com.br.projetoVenciSend.clientes.Record;
 
 public record PessoaCriarResponseDTO(Long id, String senha) {
     
