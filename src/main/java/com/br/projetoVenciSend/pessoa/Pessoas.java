@@ -35,6 +35,7 @@ public class Pessoas {
 
         this.nome = nome;
         this.senha = senha;
+        this.ativo = true;
     }
 
 
