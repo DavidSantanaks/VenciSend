@@ -44,5 +44,14 @@ public class PessoasServiceImpl implements PessoasService {
         repository.save(pessoa);
     }
 
-  
+    @Override
+    public List<PessoasListagemDTO> findByAtivoTrue() {
+        List<PessoasListagemDTO> pessoa = list();
+       pessoa = pessoa.stream().filter(p -> p.ativo() != false).toList();
+
+        return pessoa;
+
+    }
+
+
 }
