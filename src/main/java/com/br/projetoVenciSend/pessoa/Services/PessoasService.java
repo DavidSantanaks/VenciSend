@@ -14,5 +14,7 @@ import com.br.projetoVenciSend.pessoa.Record.PessoasListagemDTO;
 
     void deletar(Long id);
 
+    List<PessoasListagemDTO> findByAtivoTrue();
+
 
 }
