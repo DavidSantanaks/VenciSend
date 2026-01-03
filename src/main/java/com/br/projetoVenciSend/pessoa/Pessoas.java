@@ -17,6 +17,19 @@ public class Pessoas {
     private Long id;
     private String nome;
     private String senha;
+    private boolean ativo;
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+
 
     public Pessoas(String nome, String senha){
 
