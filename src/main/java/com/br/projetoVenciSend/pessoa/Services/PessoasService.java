@@ -11,4 +11,8 @@ import com.br.projetoVenciSend.pessoa.Record.PessoasListagemDTO;
     List<PessoasListagemDTO> list();
 
     PessoaCriarResponseDTO criar(PessoasCriarDTO dto);
+
+    void deletar(Long id);
+
+
 }

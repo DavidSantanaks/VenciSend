@@ -1,24 +1,23 @@
 package com.br.projetoVenciSend.pessoa;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.br.projetoVenciSend.pessoa.Record.PessoaCriarResponseDTO;
 import com.br.projetoVenciSend.pessoa.Record.PessoasCriarDTO;
 import com.br.projetoVenciSend.pessoa.Record.PessoasListagemDTO;
 import com.br.projetoVenciSend.pessoa.Services.PessoasService;
-import com.br.projetoVenciSend.pessoa.Services.PessoasServiceImpl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
-
 
 
 @RestController()
@@ -32,18 +31,24 @@ public class PessoasController {
         this.service = service;
     }
     
-    @GetMapping()
-    public List<PessoasListagemDTO> listar() {
-        return service.list();
+    @GetMapping("/listartodos")
+    public ResponseEntity<List<PessoasListagemDTO>> listar() {
+        List<PessoasListagemDTO> todasPessoas = service.list();
+        return ResponseEntity.status(HttpStatus.OK).body(todasPessoas);
     }
     
-    @PostMapping()
+    
+    @PostMapping("/criar")
     public ResponseEntity<PessoaCriarResponseDTO>  criar(@RequestBody PessoasCriarDTO entity) {
 
       PessoaCriarResponseDTO responseDTO = service.criar(entity);
       return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
 
+    }
 
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable Long id){
+        service.deletar(id);
     }
     
     

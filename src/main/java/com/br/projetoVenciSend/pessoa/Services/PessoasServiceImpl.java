@@ -1,6 +1,7 @@
 package com.br.projetoVenciSend.pessoa.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class PessoasServiceImpl implements PessoasService {
     @Override
     public List<PessoasListagemDTO> list() {
         return repository.findAll().stream()
-        .map(p -> new PessoasListagemDTO(p.getId(), p.getNome())).toList();
+        .map(p -> new PessoasListagemDTO(p.getId(), p.getNome(), p.isAtivo())).toList();
 
     }
 
@@ -35,4 +36,13 @@ public class PessoasServiceImpl implements PessoasService {
         return new PessoaCriarResponseDTO(salva.getId(), salva.getNome());  
     }
 
+    @Override
+    public void deletar(Long id) {
+        Optional<Pessoas> pessoaDeletar = repository.findById(id);
+        Pessoas pessoa = pessoaDeletar.get();
+        pessoa.setAtivo(false);
+        repository.save(pessoa);
+    }
+
+  
 }
