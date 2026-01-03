@@ -50,6 +50,13 @@ public class PessoasController {
     public void delete(@PathVariable Long id){
         service.deletar(id);
     }
+
+    @GetMapping()
+    public ResponseEntity<List<PessoasListagemDTO>> listaAtivo() {
+        List<PessoasListagemDTO> p = service.findByAtivoTrue();
+        return ResponseEntity.status(HttpStatus.OK).body(p);
+    }
+    
     
     
 }
