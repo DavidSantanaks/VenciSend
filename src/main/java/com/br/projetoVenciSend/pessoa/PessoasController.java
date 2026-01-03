@@ -31,22 +31,22 @@ public class PessoasController {
         this.service = service;
     }
     
-    @GetMapping("/listartodos")
+    @GetMapping("/listall")
     public ResponseEntity<List<PessoasListagemDTO>> listar() {
         List<PessoasListagemDTO> todasPessoas = service.list();
         return ResponseEntity.status(HttpStatus.OK).body(todasPessoas);
     }
     
     
-    @PostMapping("/criar")
-    public ResponseEntity<PessoaCriarResponseDTO>  criar(@RequestBody PessoasCriarDTO entity) {
+    @PostMapping()
+    public ResponseEntity<PessoaCriarResponseDTO>  postPessoa(@RequestBody PessoasCriarDTO entity) {
 
       PessoaCriarResponseDTO responseDTO = service.criar(entity);
       return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
 
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
         service.deletar(id);
     }
