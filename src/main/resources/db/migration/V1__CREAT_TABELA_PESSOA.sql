@@ -1,5 +1,6 @@
-CREATE TABLE pessoas (
+CREATE TABLE clientes (
     id BIGINT  AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50),
-    senha VARCHAR(12)
+    ativo boolean,
+    data_criacao TIMESTAMP
 );

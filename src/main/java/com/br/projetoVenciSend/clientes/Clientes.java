@@ -1,48 +1,40 @@
 package com.br.projetoVenciSend.clientes;
 
 
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Table(name = "pessoas")
+@Table(name = "clientes")
 @Entity
 
-public class Pessoas {
+public class Clientes {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String senha;
     private boolean ativo;
+    @Column(name = "data_criacao")
+    private LocalDateTime dataCriacao;
 
-    public boolean isAtivo() {
-        return ativo;
+    
+
+    public Clientes() {
     }
 
-
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
-    }
-
-
-
-    public Pessoas(String nome, String senha){
+    public Clientes(String nome){
 
         this.nome = nome;
-        this.senha = senha;
         this.ativo = true;
+        this.dataCriacao = LocalDateTime.now();
+
     }
-
-
-
-    public Pessoas() {
-    }
-
 
     public Long getId() {
         return id;
@@ -50,18 +42,25 @@ public class Pessoas {
     public String getNome() {
         return nome;
     }
-    public String getSenha() {
-        return senha;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
+     public boolean isAtivo() {
+        return ativo;
+    }
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+    
 
 }
